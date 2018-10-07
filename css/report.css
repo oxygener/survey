@@ -1,0 +1,351 @@
+/*字型*/
+.font-blod,
+.card-title {
+    font-family: MicrosoftJhengHeiBold, LiHei Pro;
+}
+
+.font-regular,
+.card-text {
+    font-family: 微軟正黑體, Heiti TC;
+}
+
+/*一般字體*/
+.general-text {
+    font-size: 1.0em;
+}
+
+/*檢驗報告上方title*/
+
+
+/*卡片title文字顏色*/
+
+#card-title-A-1,
+#card-title-B-1 {
+    color: #3b8d85;
+}
+
+#card-title-A-2,
+#card-title-B-2 {
+    color: #2c915f;
+}
+
+#card-title-A-3,
+#card-title-B-3 {
+    color: #c24b55;
+}
+
+#card-title-A-4,
+#card-title-B-4 {
+    color: #db9e16;
+}
+
+#card-title-A-5,
+#card-title-B-5 {
+    color: #005797;
+}
+
+#card-title-C-1 {
+    color: #297485;
+}
+
+#card-title-C-2 {
+    color: #297485;
+}
+
+
+
+/*卡片background顏色*/
+
+#card-A-1,
+#card-B-1,
+#card-A-1>.card-body>.card-text:after,
+#card-B-1>.card-body>.card-text:after {
+    background-color: #d7ede9;
+}
+
+#card-A-2,
+#card-B-2,
+#card-A-2>.card-body>.card-text:after,
+#card-B-2>.card-body>.card-text:after {
+    background-color: #d9f1d6;
+}
+
+#card-A-3,
+#card-B-3,
+#card-A-3>.card-body>.card-text:after,
+#card-B-3>.card-body>.card-text:after {
+    background-color: #fff0e2;
+}
+
+#card-A-4,
+#card-B-4,
+#card-A-4>.card-body>.card-text:after,
+#card-B-4>.card-body>.card-text:after {
+    background-color: #fffbd0;
+}
+
+#card-A-5,
+#card-B-5,
+#card-A-5>.card-body>.card-text:after,
+#card-B-5>.card-body>.card-text:after {
+    background-color: #eef9fe;
+}
+
+#card-C-1,
+#card-C-1>.card-body>.card-text:after {
+    background-color: #e5f9f6;
+}
+
+#card-C-2,
+#card-C-2>.card-body>.card-text:after {
+    background-color: #ffffff;
+}
+
+
+.card-title {
+    margin: 0px 0px 15px 0px;
+    /*title下方的margin*/
+    font-size: 1.4em
+        /*title size*/
+}
+
+/*限制文字行數不能超過2行，文字超過行數用...代替*/
+#card-C-1>.card-body>.card-text,
+#card-C-2>.card-body>.card-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.2em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 1.2em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;
+    /* place for '...' */
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+/* 取消限制2行，從縮減文字出發 */
+/*.card-title,
+.card-text,
+#card-B-3>.card-body>.card-text,
+#card-B-4>.card-body>.card-text,
+#card-B-5>.card-body>.card-text {
+    overflow: hidden;
+    position: relative;
+    text-align: justify;
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+.card-title,
+#card-B-3>.card-body>.card-text,
+#card-B-4>.card-body>.card-text,
+#card-B-5>.card-body>.card-text {
+    overflow: hidden;
+    position: relative;
+    line-height: 1.2em;
+    max-height: 2.4em;
+}
+
+.card-text:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.card-text:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+}*/
+
+.card-grid-top {}
+
+.card-grid-middle-large {}
+
+.card-grid-middle-small {}
+
+.card-columns {
+    column-count: 1;
+    column-gap: 0;
+    /*columns之間的距離*/
+}
+
+.card-columns>.card {
+    margin: 0;
+    /*row之間的距離*/
+    border-color: #34d6b7;
+    border-radius: 0;
+}
+
+
+.card-columns-header {
+    column-count: 1;
+}
+
+#ui_D_1,
+#ui_D_2 {
+    color: #36837b;
+}
+
+
+
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+
+    .general-text {
+        font-size: 1.4em;
+    }
+
+    #ui_D_1,
+    #ui_D_2 {
+        color: #36837b;
+
+    }
+
+
+    .card-title {
+        font-size: 1.3em;
+    }
+
+    .card-columns {
+        column-count: 4;
+    }
+
+    .card-columns-header {
+        column-count: 2;
+    }
+
+    /*限制card的高度*/
+    .card-grid-top {
+        min-height: 180px;
+        max-height: 180px;
+    }
+
+    .card-grid-middle-large {
+        min-height: 339px;
+        max-height: 339px;
+    }
+
+    .card-grid-middle-small {
+        min-height: 224px;
+        max-height: 224px;
+    }
+
+    /*C-1,C-2 內縮margin*/
+    .card-grid-top .card-body {
+        /*margin: 0px 10px 0px 10px;*/
+    }
+}
+
+@media (min-width: 1200px) {
+    /*C-1,C-2 內縮margin*/
+    /*.card-grid-top .card-body {
+    margin: 0px 40px 0px 40px;*/
+}
+
+.card-title {
+    font-size: 1.6em;
+}
+
+
+
+/* Footer */
+/*@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');*/
+
+section {
+    padding: 30px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+#footer {
+    background: #345664 !important;
+}
+
+#footer h5 {
+    padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+#footer ul.social li {
+    padding: 3px 0;
+}
+
+#footer ul.social li a i {
+    margin-right: 5px;
+    font-size: 25px;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.social li:hover a i {
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+#footer ul.social li a,
+#footer ul.quick-links li a {
+    color: #ffffff;
+}
+
+#footer ul.social li a:hover {
+    color: #eeeeee;
+}
+
+#footer ul.quick-links li {
+    padding: 3px 0;
+    -webkit-transition: .5s all ease;
+    -moz-transition: .5s all ease;
+    transition: .5s all ease;
+}
+
+#footer ul.quick-links li:hover {
+    padding: 3px 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+
+#footer ul.quick-links li a i {
+    margin-right: 5px;
+}
+
+#footer ul.quick-links li:hover a i {
+    font-weight: 700;
+}
+
+@media (max-width:767px) {
+    #footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+}

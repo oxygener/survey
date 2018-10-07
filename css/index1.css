@@ -1,0 +1,158 @@
+/*字型*/
+.font-bold {
+    font-family: MicrosoftJhengHeiBold, LiHei Pro;
+}
+
+.font-regular {
+    font-family: 微軟正黑體, Heiti TC;
+}
+
+
+#page2-radio-header-title,
+#page3-radio-header-title,
+#page4-radio-header-title {
+    font-size: 1.4em;
+}
+
+#page2-radio-header-subtitle,
+#page3-radio-header-subtitle,
+#page4-radio-header-subtitle {
+    font-size: 1.0em;
+}
+
+/*Bootstrap Contact Form*/
+.contact-form {
+    width: 100%;
+    margin-bottom: 0%;
+}
+
+.contact-form .form-control {
+    border-radius: 1.6rem;
+}
+
+.form-control,
+::-webkit-input-placeholder {
+    /*input field的高度*/
+    height: 60px;
+    border-color: #3b5562;
+    color: #3b5562;
+}
+
+.contact-title {
+    color: #3b5562;
+}
+
+/* input field hint 目前因為input class=form-control 會沒作用，原因不明*/
+::-webkit-input-placeholder {
+    color: #3b5562;
+}
+
+/*.contact-form form {
+    padding: 5%;
+}
+
+.contact-form form .row {
+    margin-bottom: -7%;
+}*/
+
+/*.contact-form .btnContact {
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}*/
+
+.radio-header-box {
+    background-color: #3b5562;
+    color: white;
+    width: 100%;
+    display: inline-block;
+    /*讓div可以置中*/
+}
+
+.radio-box {
+    border-color: #5ea8a9;
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    display: inline-block;
+    /*讓div可以置中*/
+}
+
+.radio-title-hint {
+    font-size: 0.8em;
+    color: #5ea8a9;
+}
+
+.radio-title {
+    font-size: 1.6em;
+    color: black;
+}
+
+.radio-level {
+    font-size: 0.6em;
+}
+
+.radio-number {
+    font-size: 1.6em;
+}
+
+
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {
+
+    #page2-radio-header-title,
+    #page3-radio-header-title,
+    #page4-radio-header-title {
+        font-size: 1.8em;
+    }
+
+    #page2-radio-header-subtitle,
+    #page3-radio-header-subtitle,
+    #page4-radio-header-subtitle {
+        font-size: 1.2em;
+    }
+
+
+    .contact-form {
+        width: 50%;
+    }
+
+    /*radio button div*/
+
+    .radio-header-box {
+        width: 80%;
+    }
+
+    .radio-box {
+        width: 80%;
+    }
+
+
+
+    .radio-title-hint {
+        font-size: 1.0em;
+    }
+
+    .radio-title {
+        font-size: 2.0em;
+        color: black;
+    }
+
+    .radio-level {
+        font-size: 1.0em;
+    }
+
+    .radio-number {
+        font-size: 2.2em;
+    }
+}
+
+@media (min-width: 1200px) {}

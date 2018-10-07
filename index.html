@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- css main -->
+    <link rel="stylesheet" type="text/css" href="css/index1.css">
+    <!-- css for datepicker -->
+    <link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <!-- js jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- js bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- js cookie -->
+    <script src="js/js.cookie.js"></script>
+    <!-- js for datepicker -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Handlebars.js v4.0.12 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <!-- js index -->
+    <script src="js/index.js"></script>
+    <!-- ui templete -->
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
+                <p class="radio-title-hint">{{hint}}</p>
+                <p class="radio-title font-regular mb-3 mb-lg-5">{{title}}</p>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="">
+                            <label class="radio-inline radio-level font-bold align-middle mr-0 mr-lg-5">很少</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">1</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="2" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">2</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="3" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">3</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="4" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">4</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">5</label>
+                            <label class="radio-inline radio-level font-bold align-middle ml-0 ml-lg-5">時常</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+    </script>
+</head>
+
+<body>
+    <!-- page1 header-->
+    <div class="page container-fluid text-center">
+        <img class="img-fluid" alt="Responsive image" src="image/index/p1/p1_banner.png">
+        <div class="pt-5 pb-5">
+            <a id="downloadReport" href="#btn_next"><img src="image/index/p1/p1_start.png" class="img-fluid p-2" alt="Responsive image"></a>
+            <a id="btn_lastRecordUrl" href="index.html"><img src="image/index/p1/p1_report.png" class="img-fluid p-2" alt="Responsive image">
+            </a>
+        </div>
+        <div class="pb-5">
+            <a href="https://youtu.be/Pa8yMexQqtU" target="_blank"><img src="image/index/p1/p1_video.png" class="img-fluid p-2" alt="Responsive image"></a>
+        </div>
+
+        <!-- page1 body-->
+        <div class="container text-center">
+            <img class="img-fluid" alt="Responsive image" src="image/index/flow.jpg">    
+            
+            <img class="img-fluid" alt="Responsive image" src="image/index/p1/p1_progress.png">
+            <!-- 聯絡我 -->
+            <!-- <div class="container-fluid contact-form"> -->
+            <div class="container contact-form">
+                <form method="post">
+                    <div class="text-center p-lg-3">
+                        <!-- title -->
+                        <h3 class="font-bold" id="page1-contact-title" class="contact-title"></h3>
+                        <!-- subtitle -->
+                        <p class="font-regular" id="page1-contact-subtitle" class="contact-title pt-lg-3"></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input id="ui_if_0_0_value" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="ui_if_0_1_value" class="form-control datepicker">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- page2 -->
+    <div class="page container-fluid text-center">
+        <!-- flow image -->
+        <img class="img-fluid mt-5" alt="Responsive image" src="image/index/flow.jpg">
+        <!-- progress image -->
+        <img class="img-fluid mt-3" alt="Responsive image" src="image/index/p2/p2_progress.png">
+        <div id="page2-question">
+            <div class="radio-header-box mt-3 mt-lg-5 pt-4 pb-3" >
+                <!-- title -->
+                <h3 class="font-bold" id="page2-radio-header-title"></h3>
+                <!-- subtitle -->
+                <p class="font-regular" id="page2-radio-header-subtitle"></p>
+            </div>
+        </div>
+    </div>
+    <!-- page3 -->
+    <div class="page container text-center">
+        <!-- flow image -->
+        <img class="img-fluid mt-5" alt="Responsive image" src="image/index/flow.jpg">
+        <!-- progress image -->
+        <img class="img-fluid mt-3" alt="Responsive image" src="image/index/p3/p3_progress.png">
+        <div id="page3-question">
+            <div class="radio-header-box mt-3 mt-lg-5 pt-4 pb-3">
+                <!-- title -->
+                <h3 class="font-bold" id="page3-radio-header-title"></h3>
+                <!-- subtitle -->
+                <p class="font-regular" id="page3-radio-header-subtitle"></p>
+            </div>
+        </div>
+    </div>
+    <!-- page4 -->
+    <div class="page container text-center">
+        <!-- flow image -->
+        <img class="img-fluid mt-5" alt="Responsive image" src="image/index/flow.jpg">
+        <!-- progress image -->
+        <img class="img-fluid mt-3" alt="Responsive image" src="image/index/p4/p4_progress.png">
+        <div id="page4-question">
+            <div class="radio-header-box mt-3 mt-lg-5 pt-4 pb-3">
+                <!-- title -->
+                <h3 class="font-bold" id="page4-radio-header-title"></h3>
+                <!-- subtitle -->
+                <p class="font-regular" id="page4-radio-header-subtitle"></p>
+            </div>
+        </div>
+    </div>
+    <!-- page5 -->
+    <div class="page container text-center">
+        <!-- flow image -->
+        <img class="img-fluid mt-5" alt="Responsive image" src="image/index/flow.jpg">
+        <!-- progress image -->
+        <img class="img-fluid mt-3" alt="Responsive image" src="image/index/p4/p4_progress.png">
+        <!-- Bootstrap Contact Form -->
+        <div class="container contact-form">
+            <form method="post">
+                <div class="mt-3 text-center">
+                    <h3 class="font-bold" id="page5-1-contact-title" class="contact-title"></h3>
+                    <p class="font-regular" id="page5-1-contact-subtitle" class="contact-title pt-3"></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input id="ui_if_1_0_value" class="form-control optional" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="ui_if_1_1_value" class="form-control optional" type="text" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <input id="ui_if_1_2_value" class="form-control optional" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="font-bold" id="page5-2-contact-title" class="contact-title"></h3>
+                    <p class="font-regular" id="page5-2-contact-subtitle" class="contact-title pt-3"></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input id="ui_if_2_0_value" class="form-control optional" type="text" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- <div class="text-center">
+    <button id="btn_pre">上一頁</button> -->
+    <!-- 按鈕：下一頁 -->
+    <div class="text-center pt-5">
+        <img id="btn_next" src="image/index/p1/p1_next.jpg" class="img-fluid p-2" alt="Responsive image">
+    </div>
+</body>
+
+</html>
