@@ -1,4 +1,4 @@
-var gFormID = '1FAIpQLSeX5u0zEiV5Ik9wsY2zm7XeEHOrD3_yN6mztdzVttHoMrikkw'; //google 表單ID [for test CopyDown + Gmerge 版本 (Responses)]
+var gFormID = '';
 var gSheetParam = {}; //google sheet所需要的參數
 var config; //json格式的config設定檔
 
@@ -21,6 +21,7 @@ $(function() {
             dataType: "json",
             success: function(data) {
                 config = data;
+                gFormID = config.fid;
                 initQuestionMapping();
             }
         });
