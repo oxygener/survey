@@ -4,10 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>優氧專家系統</title>
     <!-- css bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- css main -->
-    <link rel="stylesheet" type="text/css" href="css/index1.css">
+    <link rel="stylesheet" type="text/css" href="css/index6.css">
     <!-- css for datepicker -->
     <link href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
     <!-- js jquery -->
@@ -20,15 +21,20 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Handlebars.js v4.0.12 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <!-- js common -->
+    <script src="js/common.js"></script>
     <!-- js index -->
-    <script src="js/index.js"></script>
+    <script src="js/index6.js"></script>
     <!-- ui templete -->
-    <script id="entry-template" type="text/x-handlebars-template">
+    <script id="template-radio-type-A" type="text/x-handlebars-template">
         <div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
-                <p class="radio-title-hint">{{hint}}</p>
-                <p class="radio-title font-regular mb-3 mb-lg-5">{{title}}</p>
+                <p class="radio-title-hint {{color}}">{{hint}}</p>
+                <div class="radio-title font-regular mb-3 mb-lg-5">
+                    <div class="d-inline {{color}}">{{number}}</div>
+                    <div class="d-inline">{{title}}</div>
+                </div>
                 <fieldset>
-                    <div class="form-group">
+                    <div class="form-group radio-type-A">
                         <div class="">
                             <label class="radio-inline radio-level font-bold align-middle mr-0 mr-lg-5">很少</label>
                             <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}">
@@ -42,6 +48,28 @@
                             <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}">
                             <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">5</label>
                             <label class="radio-inline radio-level font-bold align-middle ml-0 ml-lg-5">時常</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+    </script>
+
+    <script id="template-radio-type-B" type="text/x-handlebars-template">
+        <div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
+                <p class="radio-title-hint {{color}}">{{hint}}</p>
+                <div class="radio-title font-regular mb-3 mb-lg-5">
+                    <div class="d-inline {{color}}">{{number}}</div>
+                    <div class="d-inline">{{title}}</div>
+                </div>
+                <fieldset>
+                    <div class="form-group radio-type-B">
+                        <div class="" >
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}" >
+                            <label class="radio-inline radio-number align-middle mr-1 mr-lg-5">目前有　</label>
+                        </div>
+                        <div class="">
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}" >
+                            <label class="radio-inline radio-number align-middle mr-1 mr-lg-5">目前沒有</label>
                         </div>
                     </div>
                 </fieldset>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/js.cookie.js"></script>
+    <script src="../js/html2canvas.js"></script>
+    <script type="text/javascript">
+    var getCanvas;
+    var getCanvas2;
+
+    $(document).ready(function() {
+        console.log('start');
+        initButton();
+
+    });
+
+    function initButton() {
+        // set onclick listener
+
+        $("#downloadimage1").on('click', function() {
+            console.log('onclick');
+            html2canvas(document.getElementById("testdiv1")).then(function(canvas) {
+                saveAs(canvas.toDataURL(), '九宮格頁面.png');
+            });
+            // html2canvas(document.getElementById("testdiv2")).then(function(canvas) {
+            //     saveAs(canvas.toDataURL(), '詳細頁面.png');
+            // });
+        });
+
+
+        $("#downloadimage2").on('click', function() {
+            console.log('onclick');
+            html2canvas(document.getElementById("testdiv2")).then(function(canvas) {
+                saveAs(canvas.toDataURL(), '詳細頁面.png');
+            });
+        });
+    }
+
+    //  下載檔案到local
+    function saveAs(uri, filename) {
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+            //simulate click
+            link.click();
+            //remove the link when done
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <p id="version">version 8</p>
+    <a id="downloadimage1" href="#">下載 (九宮格頁面)</a>
+    <br>
+    <a id="downloadimage2" href="#">下載 (詳細頁面)</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="testdiv1">
+        <p id="question1" align="right">.</p>
+        <p align="center">(第九宮格頁面)</p>
+        <table border=3 cellpadding=5 align="center" style="background-image:url(testImg1_large.png);width:1000px;height:950px;">
+            <tr>
+                <td colspan=2><a href="#A1">Items A1</a>, <a href="#A2">A2</a></td>
+                <td>Item A3</td>
+            </tr>
+            <tr>
+                <td>Item B1</td>
+                <td>Item B2</td>
+                <td>(this is B3)</td>
+            </tr>
+            <tr>
+                <td>Item C1</td>
+                <th colspan=2>Items C2 and C3</th>
+            </tr>
+            <tr>
+                <td colspan=3>The items labelled D1, D2, and D3</td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <div id="testdiv2" align="center">
+        <p align="center">(詳細頁面)</p>
+        <p id="A1">這裡是詳細說明 （A1）</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p id="A2">這裡是詳細說明 （A2）</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p>這裡是詳細說明</p>
+        <p id="question2">END</p>
+    </div>
+</body>
+
+</html>

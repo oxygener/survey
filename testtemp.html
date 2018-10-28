@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- css bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- css main -->
+    <link rel="stylesheet" type="text/css" href="css/index5.css">
+    <!-- js jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- js bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Handlebars.js v4.0.11 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+	
+
+
+	<script id="entry-template" type="text/x-handlebars-template">
+		<div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
+                <p class="radio-title-hint  {{color}}">{{hint}}</p>
+                <div class="radio-title font-regular mb-3 mb-lg-5">
+                	<div class="d-inline {{color}}">{{number}}</div>
+                	<div class="d-inline">{{title}}</div>
+                </div>
+                <fieldset>
+                    <div class="form-group radio-type-A">
+                        <div class="">
+                            <label class="radio-inline radio-level font-bold align-middle mr-0 mr-lg-5">很少</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">1</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="2" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">2</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="3" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">3</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="4" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">4</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">5</label>
+                            <label class="radio-inline radio-level font-bold align-middle ml-0 ml-lg-5">時常</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+	</script>
+
+    <script type="text/javascript">
+
+    	var config;
+
+  //   	Handlebars.registerHelper('inputFormat', function(text, url) {
+		//   // text = Handlebars.Utils.escapeExpression(text);
+		//   // url  = Handlebars.Utils.escapeExpression(url);
+		//   var html = '<input class="align-middle ml-4 mr-1 mb-2" type="radio" value="1" name="'+text+'">';
+
+		//   // var result = '<a href="' + url + '">' + text + '</a>';
+
+		//   return new Handlebars.SafeString(text);
+		// });
+
+  //   	Handlebars.registerHelper('formatnumber', function(num, options){
+	 //        num = num + '';
+	 //        return num.replace(/(?=(?!^)(?:\d{3})+(?:\.|$))(\d{3}(\.\d+$)?)/g,',$1');
+  //    	});
+
+  //    	Handlebars.registerHelper('list', function(items, options) {
+		//   var out = "<ul>";
+
+		//   for(var i=0, l=items.length; i<l; i++) {
+		//     out = out + "<li>" + options.fn(items[i]) + "</li>";
+		//   }
+
+		//   return out + "</ul>";
+		// });
+
+		function initConfig() {
+	        console.log('initConfig()');
+	        // 讀取config檔案
+	        $.ajax({
+	            cache: false,
+	            url: "config/config.json",
+	            dataType: "json",
+	            success: function(data) {
+	                config = data;
+	                initSessionUI();
+	            }
+	        });
+	    }
+
+	    function initSessionUI(){
+	    	console.log('initSessionUI()');
+			var source   = document.getElementById("entry-template").innerHTML;
+			var template = Handlebars.compile(source);
+
+			var session = config.session[0].question;
+			var page = config.page[1].hint;
+			console.log('page='+page);
+			$.each(session, function(index, data){
+				var context = {title: data.title, name: data.qid, hint:data.hint, number:data.number, color:"group-color-page2"};
+				console.log(JSON.stringify(context));
+				var html = template(context);
+				$('#page2-question').append(html);
+			});
+
+			session = config.session[1].question;
+			$.each(session, function(index, data){
+				var context = {title: data.title, name: data.qid, hint:data.hint, number:data.number, color:"group-color-page3"};
+				console.log(JSON.stringify(context));
+				var html = template(context);
+				$('#page2-question').append(html);
+			});
+	    }
+
+    	$(function() {
+	        console.log('ready');
+			initConfig();
+			
+
+			// var register = Handlebars.registerHelper('link', function(text, url) {
+			//   text = Handlebars.Utils.escapeExpression(text);
+			//   url  = Handlebars.Utils.escapeExpression(url);
+
+			//   var result = '<a href="' + url + '">' + text + '</a>';
+			//   console.log('result='+result);
+			//   return new Handlebars.SafeString(result);
+			// });
+
+			// $('.form-group').append(register);
+
+
+			// var context = {
+			//   people: [
+			//     {firstName: "Yehuda", lastName: "Katz"},
+			//     {firstName: "Carl", lastName: "Lerche"},
+			//     {firstName: "Alan", lastName: "Johnson"}
+			//   ]
+			// };
+			// var html = template(context);
+			// $('.form-group').append(html);
+			
+	    });
+    </script>
+
+
+</head>
+
+<body>
+
+	<input type="radio" class="big" style="transform: scale(1.5);"/>
+    <!-- page2 -->
+    <div class="page container text-center">
+    	<img class="img-fluid m-3" alt="Responsive image" src="image/index/flow.jpg">
+    	
+        <img class="img-fluid m-3" alt="Responsive image" src="image/index/p2/p2_progress.png">
+        
+		<div id="page2-question">
+
+			<div class="radio-header-box mt-3 mt-lg-5 pt-4 pb-3">
+				<h3>缺氧原因：供給與耗損（共20題）</h3>
+				<p>入不敷出就會缺乏，供不應求即為缺氧。瞭解缺氧原因，方能對症下藥。</p>
+			</div>
+			<!-- radio box -->
+			<div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
+                <p class="radio-title-hint {{color}}">{{hint}}</p>
+                <div class="radio-title font-regular mb-3 mb-lg-5">
+                	<div class="d-inline {{color}}">{{number}}</div>
+                	<div class="d-inline">{{title}}</div>
+                </div>
+                <fieldset>
+                    <div class="form-group radio-type-A">
+                        <div class="">
+                            <label class="radio-inline radio-level font-bold align-middle mr-0 mr-lg-5">很少</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">1</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="2" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">2</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="3" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">3</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="4" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">4</label>
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}">
+                            <label class="radio-inline radio-number font-bold align-middle mr-lg-1 mr-lg-3" for="radios-0">5</label>
+                            <label class="radio-inline radio-level font-bold align-middle ml-0 ml-lg-5">時常</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+	        <!-- radio box -->
+			<div class="radio-box  pt-2 pt-lg-4  pb-lg-5 mb-lg-5">
+                <p class="radio-title-hint {{color}}">{{hint}}</p>
+                <div class="radio-title font-regular mb-3 mb-lg-5">
+                	<div class="d-inline {{color}}">{{number}}</div>
+                	<div class="d-inline">{{title}}</div>
+                </div>
+                <fieldset>
+                    <div class="form-group radio-type-B">
+                        <div class="" >
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="5" name="{{{name}}}" >
+                            <label class="radio-inline radio-number align-middle mr-1 mr-lg-5">目前有　</label>
+                        </div>
+                        <div class="">
+                            <input class="align-middle ml-1 mr-1 mb-1 ml-lg-4 mr-lg-1 mb-lg-2" type="radio" value="1" name="{{{name}}}" >
+                            <label class="radio-inline radio-number align-middle mr-1 mr-lg-5">目前沒有</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+		</div>
+    </div>
+</div>
+
+</body>
+
+</html>

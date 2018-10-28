@@ -1,12 +1,27 @@
 /*字型*/
-.font-bold {
-    font-family: MicrosoftJhengHeiBold, LiHei Pro;
+
+*{
+    font-family: Microsoft JhengHei,Heiti TC;
 }
 
-.font-regular {
-    font-family: 微軟正黑體, Heiti TC;
+/*粗體*/
+.font-blod,
+.card-title
+{
+    font-weight:bold;
 }
 
+.group-color-page2{
+    color: #42aaaa;
+}
+
+.group-color-page3{
+    color: #ff665c;
+}
+
+.group-color-page4{
+    color: #7095c1;
+}
 
 #page2-radio-header-title,
 #page3-radio-header-title,
@@ -84,7 +99,6 @@
 
 .radio-title-hint {
     font-size: 0.8em;
-    color: #5ea8a9;
 }
 
 .radio-title {
@@ -93,11 +107,11 @@
 }
 
 .radio-level {
-    font-size: 0.6em;
+    font-size: 1.0em;
 }
 
 .radio-number {
-    font-size: 1.6em;
+    font-size: 1.0em;
 }
 
 
@@ -147,11 +161,17 @@
     }
 
     .radio-level {
-        font-size: 1.0em;
+        font-size: 1.4em;
     }
 
     .radio-number {
-        font-size: 2.2em;
+        font-size: 1.4em;
+    }
+
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+        transform: scale(1.5);
     }
 }
 

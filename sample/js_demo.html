@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    //check undefine
+    // if (typeof lastRecordUrl != 'undefined') {}
+
+    //動態產出button
+    // for (i = 0; i < 20; i++) {
+    //  // var radiolabel = $('<label for="radio-1">1</label>');
+    //  //    var radioBtn = $('<input type="radio" name="rbtnCount" />');
+    //  //    radiolabel.appendTo('#target');
+    //  //    radioBtn.appendTo('#target');
+    //      $("#fieldset-1")
+    // }
+
+    //clone template
+    //var template = $("#fieldset-1").clone();
+    //template.attr("id","123456");
+    //template.appendTo("#target");
+    //---------------------
+    //todo:存cookie
+    // Cookies.set('1848259859', $("input[name=1848259859]:checked").val(), { expires: 365 });
+    // Cookies.set('1221090849', $("input[name=989983221]:checked").val(), { expires: 365 });
+    // Cookies.set('KEY_CONFIG', JSON.stringify(configData), { expires: 365 });
+    //取得cookie
+    // var question1 = Cookies.get('1899164626');   
+    //---------------------
+    //取得題庫json檔案 (使用getJSON()會有cache，無法總是拿到新的config檔案)
+    // $.getJSON('config/config.json', function(jsonData) {
+    //---------------------
+    ////讀取config檔案內容 (沒有cache問題)
+    //     //儲存json檔
+    //     config = jsonData;
+    //     //打印出json
+    //     // console.log(JSON.stringify(config));
+    // });
+    // var configData; //config檔案內容
+    // 
+    // $.ajax({
+    //     cache: false,
+    //     url: "config/config.json",
+    //     dataType: "json",
+    //     success: function(data) {
+    //         configData = data;
+    //         // console.log(JSON.stringify(configData));
+    //         // var jsonData = {};
+    //         //跑完所有question
+    //         $.each(configData.session, function(i, session) {
+    //             console.log('session title=' + session.title);
+    //             $.each(session.question, function(j, question) {
+    //                 // alert(data[i].PageName);
+    //                 // console.log('question=' + question.title);
+    //             });
+    //         });
+    //     }
+    // });
+    //try cache
+    // try{
+    //         //錯誤的程式碼
+    //     }catch(e){
+    //         console.log(e);
+    //     }
+    //---------------------
+
+    $(function() {
+        jsonAppend();
+    });
+
+
+    function jsonAppend() {
+        var sitePersonel = {};
+        var emptyArray = [];
+        sitePersonel.question = emptyArray;
+
+        sitePersonel.question.push({ "qid": '1111', "value": '222' });
+        console.log(JSON.stringify(sitePersonel));
+    }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/js.cookie.js"></script>
+    <script src="../js/html2canvas.js"></script>
+    <script type="text/javascript">
+    function saveAs(uri, filename) {
+        var link = document.createElement('a');
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+            //simulate click
+            link.click();
+            //remove the link when done
+            document.body.removeChild(link);
+        } else {
+            window.open(uri);
+        }
+    }
+
+    $(document).ready(function() {
+        document.getElementById("download").addEventListener("click", function() {
+            html2canvas(document.querySelector('#boundary')).then(function(canvas) {
+                console.log(canvas);
+                saveAs(canvas.toDataURL(), 'file-name.png');
+            });
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div id="boundary">
+        <div class="content">
+            <p>My content here</p>
+        </div>
+    </div>
+    <button id="download">Download</button>
+</body>
+
+</html>

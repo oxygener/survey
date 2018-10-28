@@ -1,5 +1,4 @@
 //--------------public --------------
-
 //計算
 //1. -----D-1
 //2. -----A-[1-5]-[1]
@@ -9,7 +8,6 @@ var uiTotalValue; //D-1要呈現在UI，總「分數」，其它method會用到�
 function calculate_A(config, qmconfig) {
     console.log('calculate_A()');
     var resultArray = [];
-
     var totalScoreArray = []; //所有session分數陣列 -> 為了取最大值 (將5大類分數陳列)
     var totalSumScore = 0; //所有session分數加總 -> 為了取平均值 (將5大類分數累加)
 
@@ -205,28 +203,32 @@ function calculate_C(qmconfig) {
     return uiResult;
 }
 
-//1. -----C----- D-[1-4]
-function calculate_D(qmconfig) {
+
+//D-[1-4]
+function calculate_D(qmconfig, userName) {
     console.log('calculate_D()');
-    var resultTitle = uiTotalValue; //總分
+    var resultTitle = '';
     var resultDatail = ''; //總分建議
     var scoreArray = uiValue; //各項分數
 
-    //--------title--------
-    resultTitle = qmconfig.D.D_1[0].title + ' ' + uiTotalValue + '，';
-    // console.log(resultTitle);
-    //D-1
-    // resultDatail += qmconfig.D.D_1[0].title;
-    //D-2
-    //根據分數，取得對應range文字wording
-    //耦合高，暫時維持現狀。
+    
+    //resultTitle 格式 = 1;[使用者名稱] + 2.[總分] + 3.[總分評語]
+    //組合[使用者名稱] 
+    userName = ((common_mode == COMMON_MODE_NORMAL) ? userName : COMMON_MODE_EXHIBITION_NAME);
+    resultTitle += userName;
+    
+    //組合[總分] 
+    resultTitle += COMMON_SEPARATE + uiTotalValue;//[@]隔開array
+
+    //組合[總分評語] 
+    //根據分數，取得對應range文字wording，耦合高，暫時維持現狀。
     var compareArray = qmconfig.D.D_compare;
     var target = uiTotalValue;
     
     $.each(compareArray, function(mIndex, compare) {
         // console.log('compare='+compare +' target='+target);
         if (target <= compare) {
-            resultTitle += qmconfig.D.D_2[mIndex].title;
+            resultTitle += COMMON_SEPARATE + qmconfig.D.D_2[mIndex].title;//[@]隔開array
             return false;
         }
     });
@@ -268,8 +270,8 @@ function calculate_D(qmconfig) {
             resultDatail = resultDatail.substring(0, resultDatail.length - 1);
         }
     }
-    //--------detail--------
 
+    //--------detail--------
     return new DataTypeB(resultTitle, resultDatail);
 }
 

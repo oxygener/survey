@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/js.cookie.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var coo = Cookies.get();
+			var question1 = Cookies.get('1899164626');
+        	var question2 = Cookies.get('989983221');
+
+
+        	var KEY_COOKIE_MAX = "key_cookie_max";
+        	var stringMax = "https://docs.google.com/forms/d/e/1FAIpQLSdQRkb2K_F0sB79Rsvwfpt0GItWoZTCNUuXT-ZaSkzQuMh2UA/formResponse?entry.1129238924=1&entry.1385793370=1&entry.376872274=1&entry.1279823900=1&entry.257869736=1&entry.186368834=1&entry.776395795=1&entry.1368245297=1&entry.1991074200=1&entry.601311404=1&entry.537918106=1&entry.320924921=1&entry.765764679=1&entry.1686584009=1&entry.1642084866=1&entry.221489166=1&entry.697824922=1&entry.661789405=1&entry.683623571=1&entry.1514975469=目前有&entry.180259099=1&entry.1965898958=1&entry.2125931835=1&entry.12578070=1&entry.261541525=1&entry.728718138=1&entry.1894823352=1&entry.698928804=1&entry.238955254=1&entry.505256490=1&entry.698257321=1&entry.1874729371=1&entry.1435626107=1&entry.1882141687=Brent&entry.38649862=brenttsai1148@gmail.com&entry.990943500=075520000&entry.1169388888=客戶專用https://docs.google.com/forms/d/e/1FAIpQLSdQRkb2K_F0sB79Rsvwfpt0GItWoZTCNUuXT-ZaSkzQuMh2UA/formResponse?entry.1129238924=1&entry.1385793370=1&entry.376872274=1&entry.1279823900=1&entry.257869736=1&entry.186368834=1&entry.776395795=1&entry.1368245297=1&entry.1991074200=1&entry.601311404=1&entry.537918106=1&entry.320924921=1&entry.765764679=1&entry.1686584009=1&entry.1642084866=1&entry.221489166=1&entry.697824922=1&entry.661789405=1&entry.683623571=1&entry.1514975469=目前有&entry.180259099=1&entry.1965898958=1&entry.2125931835=1&entry.12578070=1&entry.261541525=1&entry.728718138=1&entry.1894823352=1&entry.698928804=1&entry.238955254=1&entry.505256490=1&entry.698257321=1&entry.1874729371=1&entry.1435626107=1&entry.1882141687=Brent&entry.38649862=brenttsai1148@gmail.com&entry.990943500=075520000&entry.1169388888=客戶專用https://docs.google.com/forms/d/e/1FAIpQLSdQRkb2K_F0sB79Rsvwfpt0GItWoZTCNUuXT-ZaSkzQuMh2UA/formResponse?entry.1129238924=1&entry.1385793370=1&entry.376872274=1&entry.1279823900=1&entry.257869736=1&entry.186368834=1&entry.776395795=1&entry.1368245297=1&entry.1991074200=1&entry.601311404=1&entry.537918106=1&entry.320924921=1&entry.765764679=1&entry.1686584009=1&entry.1642084866=1&entry.221489166=1&entry.697824922=1&entry.661789405=1&entry.683623571=1&entry.1514975469=目前有&entry.180259099=1&entry.1965898958=1&entry.2125931835=1&entry.12578070=1&entry.261541525=1&entry.728718138=1&entry.1894823352=1&entry.698928804=1&entry.238955254=1&entry.505256490=1&entry.698257321=1&entry.1874729371=1&entry.1435626107=1&entry.1882141687=Brent&entry.38649862=brenttsai1148@gmail.com&entry.990943500=075520000&entry.1169388888=客戶專用";
+
+
+        	Cookies.set(KEY_COOKIE_MAX, stringMax);
+
+
+			$("#cookies").text("cookies="+question1);
+			$("#cookiesMax").text("cookiesMax="+Cookies.get(KEY_COOKIE_MAX));
+		});
+	</script>
+
+	
+</head>
+
+<body>
+
+	<p id="cookies">顯示所有的cookie</p>
+	<p id="cookiesMax">顯示所有的cookie</p>
+
+	
+</body>
+</html>
+

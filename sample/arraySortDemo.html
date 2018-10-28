@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+        array = [
+        	{ score: 1002, sort: 2 },
+            { score: 1000, sort: 4 },
+            { score: 1001, sort: 5 },
+            { score: 1001, sort: 0 },
+            { score: 1001, sort: 3 },
+            { score: 1001, sort: 1 }
+        ];
+
+        //先排序A (大到小)，在排序B(小到大)
+        array.sort(function(a, b) {
+            function cmp(x, y) {
+                return x > y ? 1 : (x < y ? -1 : 0);
+            }
+            return cmp(b.score, a.score) || cmp(a.sort, b.sort);
+        });	
+
+        console.log('array=' + JSON.stringify(array));
+    });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

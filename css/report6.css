@@ -1,12 +1,13 @@
 /*字型*/
-.font-blod,
-.card-title {
-    font-family: MicrosoftJhengHeiBold, LiHei Pro;
+*{
+    font-family: Microsoft JhengHei,Heiti TC;
 }
 
-.font-regular,
-.card-text {
-    font-family: 微軟正黑體, Heiti TC;
+/*粗體*/
+.font-blod,
+.card-title
+{
+    font-weight:bold;
 }
 
 /*一般字體*/
@@ -178,24 +179,19 @@
     /*columns之間的距離*/
 }
 
-.card-columns>.card {
+
+.card-columns>div>.card {
     margin: 0;
     /*row之間的距離*/
     border-color: #34d6b7;
     border-radius: 0;
+    /*border-width: 2px;*/
 }
 
 
 .card-columns-header {
     column-count: 1;
 }
-
-#ui_D_1,
-#ui_D_2 {
-    color: #36837b;
-}
-
-
 
 
 @media (min-width: 576px) {}
@@ -207,13 +203,6 @@
     .general-text {
         font-size: 1.4em;
     }
-
-    #ui_D_1,
-    #ui_D_2 {
-        color: #36837b;
-
-    }
-
 
     .card-title {
         font-size: 1.3em;
@@ -229,23 +218,73 @@
 
     /*限制card的高度*/
     .card-grid-top {
-        min-height: 180px;
-        max-height: 180px;
+        min-height: 200px;
+        max-height: 200px;
     }
 
     .card-grid-middle-large {
-        min-height: 339px;
-        max-height: 339px;
+        min-height: 385px;
+        max-height: 385px;
     }
 
     .card-grid-middle-small {
-        min-height: 224px;
-        max-height: 224px;
+        min-height: 250px;
+        max-height: 250px;
     }
 
     /*C-1,C-2 內縮margin*/
     .card-grid-top .card-body {
         /*margin: 0px 10px 0px 10px;*/
+    }
+
+
+    /*顯示12宮格邊框，減少粗細問題*/
+    #card-C-1{
+        border-width: 8px 8px 8px 1px;
+    }
+
+    #card-C-2{
+        border-width: 8px 1px 8px 8px;
+    }
+
+    #card-A-1{
+        border-width: 8px 1px 1px 8px;
+    }
+
+    #card-A-2{
+        border-width: 1px 1px 8px 8px;
+    }
+
+    #card-A-3{
+        border-width: 8px 8px 1px 1px;
+    }
+
+    #card-A-4{
+        border-width: 1px 8px 1px 1px;
+    }
+
+    #card-A-5{
+        border-width: 1px 8px 8px 1px;
+    }
+
+    #card-B-1{
+        border-width: 8px 8px 1px 1px;
+    }
+
+    #card-B-2{
+        border-width: 1px 8px 8px 1px;
+    }
+
+    #card-B-3{
+        border-width: 8px 1px 1px 8px;
+    }
+
+    #card-B-4{
+        border-width: 1px 1px 1px 8px;
+    }
+
+    #card-B-5{
+        border-width: 1px 1px 8px 8px;
     }
 }
 
@@ -254,11 +293,6 @@
     /*.card-grid-top .card-body {
     margin: 0px 40px 0px 40px;*/
 }
-
-.card-title {
-    font-size: 1.6em;
-}
-
 
 
 /* Footer */
