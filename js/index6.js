@@ -7,7 +7,11 @@ var config; //json格式的config設定檔
 var mapping_question = [];//將問卷題目放到array，供qid逆向取得
 var mapping_number = [];//將問卷題號放到array，供qid逆向取得
 
+var report_mode = COMMON_HTTP_GET_VALUE_NORMAL;
+
 $(function() {
+    console.log('ver 6');
+    initHttpGet();
     initConfig();
 });
 
@@ -35,6 +39,25 @@ function initConfig() {
             init();
         }
     });
+}
+
+
+function initHttpGet() {
+    console.log('initHttpGet()');
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    var hash;
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        var key = hash[0];
+        var value = hash[1];
+
+        if (key == COMMON_HTTP_GET_KEY_MODE && value == COMMON_HTTP_GET_VALUE_EXHIBITION) {
+            report_mode = COMMON_HTTP_GET_VALUE_EXHIBITION;
+        }
+        // console.log('key='+key+' value='+value);
+    }
+
+    Cookies.set(COOKIE_KEY_MODE, report_mode, { expires: 1 });//展場模式Cookie
 }
 
 function init() {
@@ -146,10 +169,12 @@ function init() {
 
 
 
-        //將參數記錄至cookie，下次使用
-        Cookies.set(COOKIE_KEY_LAST_RECORD_URL, url, { expires: 365 });
-        //增加參數 
-        url += ('&' + KEY_INSERT + '=' + VALUE_INSERT_TRUE);//(需要insert google sheet)
+        
+        Cookies.set(COOKIE_KEY_LAST_RECORD_URL, url, { expires: 365 });//將參數記錄至cookie，下次使用
+        Cookies.set(COOKIE_KEY_NEED_INSERT_GOOGLE_SHEET, COOKIE_VALUE_INSERT_TRUE, { expires: 1 });//需要insert google sheet
+        
+
+        
         //導網址
         goNextPage(url);
 
